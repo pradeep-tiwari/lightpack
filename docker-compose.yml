@@ -34,6 +34,18 @@ services:
     ports:
       - "6379:6379"
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: lightpack
+      PMA_PASSWORD: secret
+      PMA_ARBITRARY: 0
+    depends_on:
+      - db
+
 volumes:
   vendor:
   storage:
